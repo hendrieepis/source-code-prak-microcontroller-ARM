@@ -1,0 +1,5 @@
+using sysbus
+mach create "gdbdemo"
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+machine StartGdbServer 3333
+pause

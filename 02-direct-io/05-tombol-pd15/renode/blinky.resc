@@ -1,0 +1,33 @@
+:name: STM32F4DISCOVERY - uji tombol (Renode)
+:description: Memuat firmware, menyimulasikan tombol B1 ditekan/dilepas, mencetak state LED.
+:description: Jalankan dari root project (folder yang berisi platformio.ini).
+:description:   renode -e "i @renode/blinky.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+python """
+from Antmicro.Renode.Time import TimeInterval
+e = emulationManager.CurrentEmulation
+m = self.Machine
+LED = 'LED6_Blue'
+LABEL = 'PD15/LD6'
+def state():
+    return 'ON' if m['sysbus.gpioPortD.' + LED].State else 'off'
+b = m['sysbus.gpioPortA.UserButton']
+e.PauseAll()
+e.RunFor(TimeInterval.FromMilliseconds(50))
+print('B1 dilepas  -> %s = %s' % (LABEL, state()))
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(50))
+print('B1 ditekan  -> %s = %s' % (LABEL, state()))
+b.Release(); e.RunFor(TimeInterval.FromMilliseconds(50))
+print('B1 dilepas  -> %s = %s' % (LABEL, state()))
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(50))
+print('B1 ditekan  -> %s = %s' % (LABEL, state()))
+e.PauseAll()
+"""
+quit

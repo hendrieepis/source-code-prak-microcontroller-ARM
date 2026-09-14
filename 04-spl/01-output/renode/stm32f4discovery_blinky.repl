@@ -1,0 +1,26 @@
+using "platforms/cpus/stm32f4.repl"
+
+// Firmware berjalan pada clock default HSI 16 MHz (tanpa konfigurasi PLL),
+// jadi samakan frekuensi SysTick emulasi agar periode tunda akurat.
+nvic:
+    systickFrequency: 16000000
+
+UserButton: Miscellaneous.Button @ gpioPortA
+    -> gpioPortA@0
+
+LED4_Green: Miscellaneous.LED @ gpioPortD
+LED3_Orange: Miscellaneous.LED @ gpioPortD
+LED5_Red: Miscellaneous.LED @ gpioPortD
+LED6_Blue: Miscellaneous.LED @ gpioPortD
+
+gpioPortD:
+    12 -> LED4_Green@0
+    13 -> LED3_Orange@0
+    14 -> LED5_Red@0
+    15 -> LED6_Blue@0
+
+// Renode tidak memodelkan SYSCFG, sehingga pemilihan sumber EXTI tidak
+// otomatis. Hubungkan langsung pin PA0 ke jalur EXTI0 agar interupsi
+// eksternal (Modul 06) dapat disimulasikan.
+gpioPortA:
+    0 -> exti@0

@@ -57,3 +57,39 @@ LED LD4 menyala sekitar satu detik, lalu mati sekitar satu detik, dan berulang.
   nilai tunda `DELAY_1S`.
 - **Kedip tidak tepat satu detik:** sesuaikan `LOOP_CYCLES` (perkiraan jumlah
   siklus per putaran `Delay`).
+
+## Simulasi dengan Renode (tanpa hardware)
+
+Jika board sedang tidak tersedia, firmware dapat diuji pada simulator
+**Renode**. Firmware harus sudah dibangun lebih dahulu (`pio run`). Semua
+perintah dijalankan dari root project (folder yang berisi `platformio.ini`).
+
+Uji cepat (menjalankan emulasi, mencetak perubahan LED/tombol, lalu keluar):
+
+```bash
+renode -e "i @renode/blinky.resc"
+```
+
+Mengamati di GUI Renode (emulasi berjalan tanpa keluar):
+
+```bash
+renode -e "i @renode/blinky_gui.resc"
+```
+
+Di Monitor Renode, state LED dapat dibaca langsung, misalnya:
+
+```
+sysbus.gpioPortD.LED4_Green State
+watch "sysbus.gpioPortD.LED4_Green State" 500
+```
+
+Debug memakai GDB memakai environment `renode_debug` (bukan default):
+
+```bash
+pio debug -e renode_debug --interface=gdb
+```
+
+> Environment default tetap `disco_f407vg` untuk board asli
+> (`default_envs = disco_f407vg`). Environment `renode_debug` hanya terpakai
+> bila dipilih eksplisit, sehingga mahasiswa yang memakai hardware tidak
+> terpengaruh.

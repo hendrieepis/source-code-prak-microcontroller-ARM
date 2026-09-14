@@ -1,0 +1,34 @@
+:name: STM32F4DISCOVERY - uji LED (Renode)
+:description: Memuat firmware, mencuplik state keempat LED, mencetak setiap perubahan, lalu keluar.
+:description: Jalankan dari root project (folder yang berisi platformio.ini).
+:description:   renode -e "i @renode/blinky.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+python """
+from Antmicro.Renode.Time import TimeInterval
+e = emulationManager.CurrentEmulation
+m = self.Machine
+names = ['LED4_Green', 'LED3_Orange', 'LED5_Red', 'LED6_Blue']
+def state(n):
+    return 'ON' if m['sysbus.gpioPortD.' + n].State else 'off'
+e.PauseAll()
+prev = None
+for step in range(0, 123):
+    if step > 0:
+        e.RunFor(TimeInterval.FromMilliseconds(5))
+    t = step * 5
+    cur = tuple(state(n) for n in names)
+    if cur != prev:
+        print('t=%d ms | LD4=%s LD3=%s LD5=%s LD6=%s' % ((t,) + cur))
+        prev = cur
+    if t >= 600:
+        break
+e.PauseAll()
+"""
+quit

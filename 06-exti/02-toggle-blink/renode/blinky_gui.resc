@@ -1,0 +1,22 @@
+:name: STM32F4DISCOVERY - GUI (Renode)
+:description: Memuat firmware dan menjalankan emulasi tanpa quit, untuk diamati di GUI Renode.
+:description: Jalankan dari root project: renode -e "i @renode/blinky_gui.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+# Jalankan emulasi dan biarkan Renode tetap terbuka.
+start
+
+# Tips: pantau state LED di Monitor, contoh:
+#   sysbus.gpioPortD.LED4_Green State
+#   sysbus.gpioPortD.LED3_Orange State
+#   sysbus.gpioPortD.LED5_Red State
+#   sysbus.gpioPortD.LED6_Blue State
+#
+# Tombol B1:   sysbus.gpioPortA.UserButton Press   /  Release
+# Pantau berkala:  watch "sysbus.gpioPortD.LED4_Green State" 500

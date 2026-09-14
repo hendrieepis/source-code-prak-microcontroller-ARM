@@ -22,13 +22,14 @@ int main(void)
 
     while (1)
     {
-        /* PWM software: nyala pada 0.25 s, mati pada 0.5 s (duty 50%). */
-        uint32_t c = TIM2->CNT;
-        if (c == 500)
+        /* PWM software: nyala selama CNT < 500, mati saat CNT >= 500.
+           Perbandingan rentang dipakai agar tidak bergantung pada
+           tertangkapnya satu nilai counter tertentu (duty 50%). */
+        if (TIM2->CNT < 500)
         {
             GPIOD->BSRR = (1U << 12);
         }
-        else if (c == 999)
+        else
         {
             GPIOD->BSRR = (1U << (12 + 16));
         }

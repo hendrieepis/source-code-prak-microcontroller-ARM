@@ -1,0 +1,6 @@
+using sysbus
+mach create "gdbdemo"
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+machine StartGdbServer 3333
+pause

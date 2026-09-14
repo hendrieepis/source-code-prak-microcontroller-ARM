@@ -1,0 +1,33 @@
+:name: STM32F4DISCOVERY - uji PWM hardware (Renode)
+:description: Memuat firmware dan mencetak konfigurasi register TIM4 serta pin GPIOD.
+:description: Jalankan dari root project: renode -e "i @renode/blinky.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+python """
+from Antmicro.Renode.Time import TimeInterval
+e = emulationManager.CurrentEmulation
+m = self.Machine
+sb = m['sysbus']
+def rd(a):
+    try:
+        return '%08X' % (sb.ReadDoubleWord(a) & 0xFFFFFFFF)
+    except Exception:
+        return 'ERR'
+B = 0x40000800  # TIM4
+e.PauseAll()
+for i in range(0, 4):
+    if i > 0:
+        e.RunFor(TimeInterval.FromMilliseconds(1))
+    print('t=%d ms | TIM4 CR1=%s PSC=%s ARR=%s CNT=%s CCMR1=%s CCER=%s CCR1=%s CCR2=%s CCR3=%s CCR4=%s | GPIOD MODER=%s AFR1=%s' % (
+        i, rd(B + 0x00), rd(B + 0x28), rd(B + 0x2C), rd(B + 0x24), rd(B + 0x18),
+        rd(B + 0x20), rd(B + 0x34), rd(B + 0x38), rd(B + 0x3C), rd(B + 0x40),
+        rd(0x40020C00), rd(0x40020C24)))
+e.PauseAll()
+"""
+quit

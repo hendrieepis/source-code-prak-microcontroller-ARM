@@ -43,3 +43,26 @@ Setiap kali tombol B1 ditekan, keempat LED berganti kondisi (nyala↔mati).
 - **Interupsi tidak jalan:** pastikan clock SYSCFG aktif dan EXTI0 di-*unmask*.
 - **Banyak interupsi sekali tekan:** bersihkan `EXTI->PR` di handler.
 - **Upload gagal:** periksa kabel mini-USB dan driver ST-LINK.
+
+## Simulasi dengan Renode (tanpa hardware)
+
+Jika board sedang tidak tersedia, firmware dapat diuji pada simulator
+**Renode**. Firmware harus sudah dibangun lebih dahulu (`pio run`). Semua
+perintah dijalankan dari root project (folder yang berisi `platformio.ini`).
+
+```bash
+renode -e "i @renode/blinky.resc"        # uji cepat, lalu keluar
+renode -e "i @renode/blinky_gui.resc"    # amati di GUI Renode
+pio debug -e renode_debug --interface=gdb # debug GDB
+```
+
+Di Monitor Renode, state LED dapat dibaca langsung:
+
+```
+sysbus.gpioPortD.LED4_Green State
+watch "sysbus.gpioPortD.LED4_Green State" 500
+```
+
+> Environment default tetap `disco_f407vg` untuk board asli
+> (`default_envs = disco_f407vg`). Environment `renode_debug` hanya terpakai
+> bila dipilih eksplisit.

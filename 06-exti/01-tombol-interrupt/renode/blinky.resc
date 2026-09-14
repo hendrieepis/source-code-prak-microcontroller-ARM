@@ -1,0 +1,33 @@
+:name: STM32F4DISCOVERY - uji interupsi tombol (Renode)
+:description: Memuat firmware, menekan B1 (EXTI0), mencetak state keempat LED.
+:description: Jalankan dari root project: renode -e "i @renode/blinky.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+python """
+from Antmicro.Renode.Time import TimeInterval
+e = emulationManager.CurrentEmulation
+m = self.Machine
+names = ['LED4_Green', 'LED3_Orange', 'LED5_Red', 'LED6_Blue']
+def st(n):
+    return 'ON' if m['sysbus.gpioPortD.' + n].State else 'off'
+def allst():
+    return ' '.join('%s=%s' % (n.split('_')[0], st(n)) for n in names)
+b = m['sysbus.gpioPortA.UserButton']
+e.PauseAll()
+e.RunFor(TimeInterval.FromMilliseconds(50))
+print('B1 dilepas               -> %s' % allst())
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(20)); b.Release()
+e.RunFor(TimeInterval.FromMilliseconds(30))
+print('setelah tekan #1 (EXTI0) -> %s' % allst())
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(20)); b.Release()
+e.RunFor(TimeInterval.FromMilliseconds(30))
+print('setelah tekan #2 (EXTI0) -> %s' % allst())
+e.PauseAll()
+"""
+quit

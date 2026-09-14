@@ -1,0 +1,39 @@
+:name: STM32F4DISCOVERY - uji tombol toggle blinky (Renode)
+:description: Memuat firmware, menekan B1 untuk mengaktifkan/mematikan blinky LD4.
+:description: Jalankan dari root project: renode -e "i @renode/blinky.resc"
+
+using sysbus
+mach create "stm32f4discovery"
+
+machine LoadPlatformDescription @renode/stm32f4discovery_blinky.repl
+
+sysbus LoadELF @.pio/build/disco_f407vg/firmware.elf
+
+python """
+from Antmicro.Renode.Time import TimeInterval
+e = emulationManager.CurrentEmulation
+m = self.Machine
+def pd12():
+    return 'ON' if m['sysbus.gpioPortD.LED4_Green'].State else 'off'
+b = m['sysbus.gpioPortA.UserButton']
+e.PauseAll()
+e.RunFor(TimeInterval.FromMilliseconds(50))
+print('awal (g_blink=0)  -> PD12/LD4 = %s' % pd12())
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(20)); b.Release()
+e.RunFor(TimeInterval.FromMilliseconds(20))
+prev = None
+trans = 0
+for i in range(0, 300):
+    e.RunFor(TimeInterval.FromMilliseconds(5))
+    s = pd12()
+    if s != prev:
+        if prev is not None:
+            trans += 1
+        prev = s
+print('setelah tekan #1  -> PD12 berkedip (%d toggle), blink AKTIF' % trans)
+b.Press(); e.RunFor(TimeInterval.FromMilliseconds(20)); b.Release()
+e.RunFor(TimeInterval.FromMilliseconds(50))
+print('setelah tekan #2  -> PD12/LD4 = %s, blink STOP' % pd12())
+e.PauseAll()
+"""
+quit
