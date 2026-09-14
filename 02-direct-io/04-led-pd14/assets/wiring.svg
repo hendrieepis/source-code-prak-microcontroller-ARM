@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="420" fill="#fbfbf7"/>
+  <rect x="1" y="1" width="898" height="418" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="600" fill="#111">Skema Rangkaian Tugas 2: LED LD5 (PD14) Berkedip</text>
+  <text x="450" y="62" text-anchor="middle" font-size="13" fill="#555">LED active-high: pin PD14 HIGH &#8594; LED menyala; LOW &#8594; LED mati.</text>
+  <rect x="30" y="110" width="150" height="240" rx="6" fill="#eef4fb" stroke="#2f6fb3" stroke-width="1.5"/>
+  <text x="105" y="145" text-anchor="middle" font-size="13" font-weight="600" fill="#1f4e79">STM32F407VGT6</text>
+  <text x="105" y="166" text-anchor="middle" font-size="11" fill="#1f4e79">GPIO Port D</text>
+  <rect x="180" y="170" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="190" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">14</text>
+  <line x1="224" y1="185" x2="320" y2="185" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="171" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="165" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="185" x2="490" y2="185" stroke="#222" stroke-width="2"/>
+  <polygon points="490,169 490,201 528,185" fill="#e05555" stroke="#9c1f1f" stroke-width="1.5"/>
+  <line x1="528" y1="169" x2="528" y2="201" stroke="#9c1f1f" stroke-width="2.5"/>
+  <line x1="540" y1="167" x2="556" y2="151" stroke="#9c1f1f" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="175" x2="568" y2="159" stroke="#9c1f1f" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="180" font-size="12" fill="#222">LD5</text>
+  <text x="590" y="197" font-size="12" fill="#9c1f1f">Red (PD14)</text>
+  <line x1="528" y1="185" x2="700" y2="185" stroke="#222" stroke-width="2"/>
+  <line x1="700" y1="185" x2="700" y2="330" stroke="#222" stroke-width="2"/>
+  <line x1="678" y1="330" x2="722" y2="330" stroke="#222" stroke-width="2.5"/>
+  <line x1="686" y1="338" x2="714" y2="338" stroke="#222" stroke-width="2.5"/>
+  <line x1="694" y1="346" x2="706" y2="346" stroke="#222" stroke-width="2.5"/>
+  <text x="725" y="335" font-size="12" fill="#222">GND</text>
+  <text x="450" y="390" text-anchor="middle" font-size="12" fill="#666">LED sudah terpasang di board; cukup konfigurasi PD14 sebagai output.</text>
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9c1f1f"/></marker>
+  </defs>
+</svg>

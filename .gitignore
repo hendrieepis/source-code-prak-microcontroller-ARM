@@ -1,0 +1,49 @@
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch/
+
+# Build outputs
+build/
+Debug/
+Release/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.su
+*.bak
+
+# Keil MDK
+Objects/
+Listings/
+*.uvguix.*
+*.uvopt
+*.uvoptx
+*.dep
+*.crf
+*.axf
+*.htm
+*.lnp
+*.sct
+*.build_log.htm
+JLinkLog.txt
+
+# Editor / OS
+.idea/
+*.swp
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment
+.env
+*.local

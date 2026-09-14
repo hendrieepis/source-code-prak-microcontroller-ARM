@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="940" viewBox="0 0 1000 940" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1000" height="940" fill="#fbfbf7"/>
+  <rect x="1" y="1" width="998" height="938" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="500" y="38" text-anchor="middle" font-size="20" font-weight="600" fill="#111">Skema Rangkaian Modul 06: Tombol B1 (PA0) dan LED LD4-LD6 (PD12-PD15)</text>
+  <text x="500" y="62" text-anchor="middle" font-size="13" fill="#555">Tombol PA0 memicu interupsi eksternal (EXTI0); handler membalik kondisi LED. Semua on-board, active-high.</text>
+  <rect x="30" y="120" width="150" height="700" rx="6" fill="#eef4fb" stroke="#2f6fb3" stroke-width="1.6"/>
+  <text x="105" y="150" text-anchor="middle" font-size="13" font-weight="600" fill="#1f4e79">STM32F407VGT6</text>
+  <text x="105" y="168" text-anchor="middle" font-size="11" fill="#1f4e79">GPIO Port D / A</text>
+  <rect x="180" y="155" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="175" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">12</text>
+  <line x1="224" y1="170" x2="320" y2="170" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="156" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="150" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="170" x2="490" y2="170" stroke="#222" stroke-width="2"/>
+  <polygon points="490,154 490,186 528,170" fill="#7ecb7e" stroke="#2e7d32" stroke-width="1.5"/>
+  <line x1="528" y1="154" x2="528" y2="186" stroke="#2e7d32" stroke-width="2.5"/>
+  <line x1="540" y1="152" x2="556" y2="136" stroke="#2e7d32" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="160" x2="568" y2="144" stroke="#2e7d32" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="165" font-size="12" fill="#222">LD4</text>
+  <text x="590" y="182" font-size="12" fill="#2e7d32">Green (PD12)</text>
+  <rect x="180" y="265" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="285" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">13</text>
+  <line x1="224" y1="280" x2="320" y2="280" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="266" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="260" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="280" x2="490" y2="280" stroke="#222" stroke-width="2"/>
+  <polygon points="490,264 490,296 528,280" fill="#f6a44b" stroke="#c96a00" stroke-width="1.5"/>
+  <line x1="528" y1="264" x2="528" y2="296" stroke="#c96a00" stroke-width="2.5"/>
+  <line x1="540" y1="262" x2="556" y2="246" stroke="#c96a00" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="270" x2="568" y2="254" stroke="#c96a00" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="275" font-size="12" fill="#222">LD3</text>
+  <text x="590" y="292" font-size="12" fill="#c96a00">Orange (PD13)</text>
+  <rect x="180" y="375" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="395" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">14</text>
+  <line x1="224" y1="390" x2="320" y2="390" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="376" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="370" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="390" x2="490" y2="390" stroke="#222" stroke-width="2"/>
+  <polygon points="490,374 490,406 528,390" fill="#e05555" stroke="#9c1f1f" stroke-width="1.5"/>
+  <line x1="528" y1="374" x2="528" y2="406" stroke="#9c1f1f" stroke-width="2.5"/>
+  <line x1="540" y1="372" x2="556" y2="356" stroke="#9c1f1f" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="380" x2="568" y2="364" stroke="#9c1f1f" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="385" font-size="12" fill="#222">LD5</text>
+  <text x="590" y="402" font-size="12" fill="#9c1f1f">Red (PD14)</text>
+  <rect x="180" y="485" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="505" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">15</text>
+  <line x1="224" y1="500" x2="320" y2="500" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="486" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="480" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="500" x2="490" y2="500" stroke="#222" stroke-width="2"/>
+  <polygon points="490,484 490,516 528,500" fill="#5b8def" stroke="#1f4ea8" stroke-width="1.5"/>
+  <line x1="528" y1="484" x2="528" y2="516" stroke="#1f4ea8" stroke-width="2.5"/>
+  <line x1="540" y1="482" x2="556" y2="466" stroke="#1f4ea8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="490" x2="568" y2="474" stroke="#1f4ea8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="495" font-size="12" fill="#222">LD6</text>
+  <text x="590" y="512" font-size="12" fill="#1f4ea8">Blue (PD15)</text>
+  <line x1="528" y1="170" x2="820" y2="170" stroke="#222" stroke-width="2"/>
+  <line x1="528" y1="280" x2="820" y2="280" stroke="#222" stroke-width="2"/>
+  <line x1="528" y1="390" x2="820" y2="390" stroke="#222" stroke-width="2"/>
+  <line x1="528" y1="500" x2="820" y2="500" stroke="#222" stroke-width="2"/>
+  <line x1="820" y1="170" x2="820" y2="560" stroke="#222" stroke-width="2"/>
+  <line x1="798" y1="560" x2="842" y2="560" stroke="#222" stroke-width="2.5"/>
+  <line x1="806" y1="568" x2="834" y2="568" stroke="#222" stroke-width="2.5"/>
+  <line x1="814" y1="576" x2="826" y2="576" stroke="#222" stroke-width="2.5"/>
+  <text x="845" y="565" font-size="12" fill="#222">GND</text>
+  <text x="560" y="628" text-anchor="middle" font-size="13" font-weight="600" fill="#b02020">+3V3</text>
+  <line x1="560" y1="636" x2="560" y2="668" stroke="#b02020" stroke-width="2.4"/>
+  <line x1="540" y1="668" x2="580" y2="668" stroke="#222" stroke-width="2.4"/>
+  <line x1="530" y1="698" x2="590" y2="698" stroke="#222" stroke-width="2.4"/>
+  <line x1="530" y1="728" x2="590" y2="728" stroke="#222" stroke-width="2.4"/>
+  <line x1="560" y1="668" x2="560" y2="698" stroke="#222" stroke-width="2.4"/>
+  <text x="602" y="718" font-size="12" fill="#222">B1 (tombol)</text>
+  <line x1="560" y1="728" x2="560" y2="760" stroke="#222" stroke-width="2.4"/>
+  <rect x="180" y="745" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="765" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">0</text>
+  <line x1="224" y1="760" x2="560" y2="760" stroke="#222" stroke-width="2.4"/>
+  <circle cx="560" cy="760" r="4" fill="#222"/>
+  <line x1="560" y1="760" x2="560" y2="790" stroke="#222" stroke-width="2.4"/>
+  <rect x="546" y="790" width="28" height="60" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="590" y="817" font-size="11" fill="#333">R (pull-down)</text>
+  <line x1="560" y1="850" x2="560" y2="875" stroke="#222" stroke-width="2.4"/>
+  <line x1="538" y1="875" x2="582" y2="875" stroke="#222" stroke-width="2.5"/>
+  <line x1="546" y1="883" x2="574" y2="883" stroke="#222" stroke-width="2.5"/>
+  <line x1="554" y1="891" x2="566" y2="891" stroke="#222" stroke-width="2.5"/>
+  <text x="590" y="880" font-size="12" fill="#222">GND</text>
+  <text x="500" y="925" text-anchor="middle" font-size="12" fill="#666">PA0 dikonfigurasi sebagai sumber EXTI0 (rising edge); board sudah memiliki pull-down sehingga ditekan = HIGH.</text>
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#2e7d32"/></marker>
+  </defs>
+</svg>

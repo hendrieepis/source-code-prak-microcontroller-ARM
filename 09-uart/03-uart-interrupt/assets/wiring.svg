@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="960" height="480" fill="#fbfbf7"/>
+  <rect x="1" y="1" width="958" height="478" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="480" y="38" text-anchor="middle" font-size="20" font-weight="600" fill="#111">Koneksi UART STM32F4Discovery ke USB-Serial (USART2)</text>
+  <text x="480" y="62" text-anchor="middle" font-size="13" fill="#555">TX dan RX harus disilang: PA2 (TX) ke RX adapter, PA3 (RX) ke TX adapter; GND ke GND.</text>
+
+  <!-- MCU -->
+  <rect x="50" y="130" width="220" height="230" rx="8" fill="#eef4fb" stroke="#2f6fb3" stroke-width="1.6"/>
+  <text x="160" y="165" text-anchor="middle" font-size="14" font-weight="600" fill="#1f4e79">STM32F4DISCOVERY</text>
+  <text x="160" y="185" text-anchor="middle" font-size="11" fill="#1f4e79">USART2</text>
+  <rect x="270" y="205" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="302" y="223" text-anchor="middle" font-size="11" font-family="Consolas, monospace">PA2 TX</text>
+  <rect x="270" y="265" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="302" y="283" text-anchor="middle" font-size="11" font-family="Consolas, monospace">PA3 RX</text>
+  <rect x="270" y="325" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="302" y="343" text-anchor="middle" font-size="11" font-family="Consolas, monospace">GND</text>
+
+  <!-- Adapter -->
+  <rect x="650" y="130" width="250" height="230" rx="8" fill="#fdeaea" stroke="#9c1f1f" stroke-width="1.6"/>
+  <text x="775" y="165" text-anchor="middle" font-size="14" font-weight="600" fill="#7f1d1d">USB-Serial</text>
+  <text x="775" y="185" text-anchor="middle" font-size="11" fill="#7f1d1d">(FTDI / CP2102)</text>
+  <rect x="630" y="205" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="662" y="223" text-anchor="middle" font-size="11" font-family="Consolas, monospace">RX</text>
+  <rect x="630" y="265" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="662" y="283" text-anchor="middle" font-size="11" font-family="Consolas, monospace">TX</text>
+  <rect x="630" y="325" width="64" height="26" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="662" y="343" text-anchor="middle" font-size="11" font-family="Consolas, monospace">GND</text>
+
+  <!-- crossed wires -->
+  <line x1="334" y1="218" x2="630" y2="278" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="334" y1="278" x2="630" y2="218" stroke="#2e7d32" stroke-width="2.2"/>
+  <line x1="334" y1="338" x2="630" y2="338" stroke="#333" stroke-width="2.2"/>
+
+  <text x="480" y="405" text-anchor="middle" font-size="12" fill="#666">Setelah terhubung, buka terminal serial (mis. 9600 baud) pada port USB-Serial tersebut untuk mengirim/menerima data.</text>
+  <text x="480" y="428" text-anchor="middle" font-size="12" fill="#666">Pada STM32F4DISCOVERY, USART2 tersedia di PA2 (TX) dan PA3 (RX) pada header.</text>
+</svg>

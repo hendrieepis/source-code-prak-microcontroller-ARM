@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="980" height="560" fill="#fbfbf7"/>
+  <rect x="1" y="1" width="978" height="558" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="490" y="38" text-anchor="middle" font-size="20" font-weight="600" fill="#111">Skema Rangkaian Tugas 3: Tombol B1 (PA0) dan LED LD6 (PD15)</text>
+  <text x="490" y="62" text-anchor="middle" font-size="13" fill="#555">LED dan tombol active-high. Tombol ditekan &#8594; PA0 HIGH; LED menyala &#8594; PD15 HIGH.</text>
+  <rect x="30" y="110" width="150" height="360" rx="6" fill="#eef4fb" stroke="#2f6fb3" stroke-width="1.5"/>
+  <text x="105" y="145" text-anchor="middle" font-size="13" font-weight="600" fill="#1f4e79">STM32F407VGT6</text>
+  <text x="105" y="166" text-anchor="middle" font-size="11" fill="#1f4e79">GPIO Port D</text>
+  <text x="105" y="184" text-anchor="middle" font-size="11" fill="#1f4e79">GPIO Port A</text>
+  <rect x="180" y="150" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="170" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">15</text>
+  <line x1="224" y1="165" x2="320" y2="165" stroke="#222" stroke-width="2"/>
+  <rect x="320" y="151" width="80" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="145" text-anchor="middle" font-size="11" fill="#333">R</text>
+  <line x1="400" y1="165" x2="490" y2="165" stroke="#222" stroke-width="2"/>
+  <polygon points="490,149 490,181 528,165" fill="#5b8def" stroke="#1f4ea8" stroke-width="1.5"/>
+  <line x1="528" y1="149" x2="528" y2="181" stroke="#1f4ea8" stroke-width="2.5"/>
+  <line x1="540" y1="147" x2="556" y2="131" stroke="#1f4ea8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="552" y1="155" x2="568" y2="139" stroke="#1f4ea8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="590" y="160" font-size="12" fill="#222">LD6</text>
+  <text x="590" y="177" font-size="12" fill="#1f4ea8">Blue (PD15)</text>
+  <line x1="528" y1="165" x2="760" y2="165" stroke="#222" stroke-width="2"/>
+  <line x1="760" y1="165" x2="760" y2="470" stroke="#222" stroke-width="2"/>
+  <line x1="738" y1="470" x2="782" y2="470" stroke="#222" stroke-width="2.5"/>
+  <line x1="746" y1="478" x2="774" y2="478" stroke="#222" stroke-width="2.5"/>
+  <line x1="754" y1="486" x2="766" y2="486" stroke="#222" stroke-width="2.5"/>
+  <text x="785" y="475" font-size="12" fill="#222">GND</text>
+  <text x="560" y="222" text-anchor="middle" font-size="13" font-weight="600" fill="#b02020">+3V3</text>
+  <line x1="560" y1="230" x2="560" y2="262" stroke="#b02020" stroke-width="2.4"/>
+  <line x1="540" y1="262" x2="580" y2="262" stroke="#222" stroke-width="2.4"/>
+  <line x1="530" y1="292" x2="590" y2="292" stroke="#222" stroke-width="2.4"/>
+  <line x1="530" y1="322" x2="590" y2="322" stroke="#222" stroke-width="2.4"/>
+  <line x1="560" y1="262" x2="560" y2="292" stroke="#222" stroke-width="2.4"/>
+  <text x="602" y="312" font-size="12" fill="#222">B1 (tombol)</text>
+  <line x1="560" y1="322" x2="560" y2="355" stroke="#222" stroke-width="2.4"/>
+  <rect x="180" y="340" width="44" height="30" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="202" y="360" text-anchor="middle" font-size="11" fill="#333" font-family="Consolas, monospace">0</text>
+  <line x1="224" y1="355" x2="560" y2="355" stroke="#222" stroke-width="2.4"/>
+  <circle cx="560" cy="355" r="4" fill="#222"/>
+  <line x1="560" y1="355" x2="560" y2="385" stroke="#222" stroke-width="2.4"/>
+  <rect x="546" y="385" width="28" height="60" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="590" y="412" font-size="11" fill="#333">R (pull-down)</text>
+  <line x1="560" y1="445" x2="560" y2="470" stroke="#222" stroke-width="2.4"/>
+  <line x1="538" y1="470" x2="582" y2="470" stroke="#222" stroke-width="2.5"/>
+  <line x1="546" y1="478" x2="574" y2="478" stroke="#222" stroke-width="2.5"/>
+  <line x1="554" y1="486" x2="566" y2="486" stroke="#222" stroke-width="2.5"/>
+  <text x="590" y="475" font-size="12" fill="#222">GND</text>
+  <text x="490" y="530" text-anchor="middle" font-size="12" fill="#666">LED dan tombol sudah terpasang di board. Program membaca PA0 lalu mengendalikan PD15.</text>
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1f4ea8"/></marker>
+  </defs>
+</svg>
